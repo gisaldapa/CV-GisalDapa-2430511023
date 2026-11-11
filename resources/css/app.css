@@ -1,0 +1,736 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+/* ===================================
+   RPG CV WEBSITE - CUSTOM STYLES
+   =================================== */
+
+:root {
+    --bg-primary: #10131D;
+    --bg-secondary: #1B2233;
+    --bg-tertiary: #222940;
+    --gold: #D6AC55;
+    --gold-light: #E8C97A;
+    --gold-dark: #A87D2E;
+    --cyan: #54D5E8;
+    --cyan-light: #80E5F3;
+    --text-primary: #F0EDE8;
+    --text-secondary: #B8B4AC;
+    --border-gold: rgba(214, 172, 85, 0.3);
+    --border-gold-hover: rgba(214, 172, 85, 0.7);
+}
+
+/* ===================================
+   BASE
+   =================================== */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* ===================================
+   TYPOGRAPHY
+   =================================== */
+.font-rpg {
+    font-family: 'Cinzel', serif;
+}
+
+.font-story {
+    font-family: 'Crimson Text', serif;
+}
+
+/* ===================================
+   RPG PANEL / CARD
+   =================================== */
+.rpg-panel {
+    background: linear-gradient(135deg, #1B2233 0%, #161C2E 100%);
+    border: 1px solid var(--border-gold);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.rpg-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.6;
+}
+
+.rpg-panel-hover {
+    transition: all 0.3s ease;
+}
+
+.rpg-panel-hover:hover {
+    border-color: var(--border-gold-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(214, 172, 85, 0.15);
+}
+
+/* ===================================
+   CORNER ORNAMENTS
+   =================================== */
+.rpg-corner {
+    position: relative;
+}
+
+.rpg-corner::before,
+.rpg-corner::after {
+    content: '◈';
+    position: absolute;
+    color: var(--gold);
+    font-size: 10px;
+    opacity: 0.7;
+}
+
+.rpg-corner::before {
+    top: 6px;
+    left: 8px;
+}
+
+.rpg-corner::after {
+    top: 6px;
+    right: 8px;
+}
+
+/* ===================================
+   GOLD DIVIDER
+   =================================== */
+.gold-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.gold-divider::before,
+.gold-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.gold-divider::after {
+    background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+/* ===================================
+   SECTION HEADER
+   =================================== */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* ===================================
+   BUTTONS
+   =================================== */
+.btn-gold {
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+    color: var(--bg-primary);
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    padding: 0.6rem 1.5rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.btn-gold:hover {
+    box-shadow: 0 4px 20px rgba(214, 172, 85, 0.5);
+    transform: translateY(-1px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--border-gold);
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.btn-outline:hover {
+    border-color: var(--gold);
+    background: rgba(214, 172, 85, 0.1);
+    color: var(--gold-light);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #7f1d1d, #991b1b);
+    color: white;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #991b1b, #b91c1c);
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.btn-cyan {
+    background: linear-gradient(135deg, #0e7490, var(--cyan));
+    color: var(--bg-primary);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+}
+
+.btn-cyan:hover {
+    box-shadow: 0 4px 15px rgba(84, 213, 232, 0.3);
+}
+
+/* ===================================
+   PROGRESS BAR (SKILL)
+   =================================== */
+.skill-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--cyan));
+    border-radius: 4px;
+    position: relative;
+    transition: width 1.5s ease;
+}
+
+.skill-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background: white;
+    border-radius: 2px;
+    opacity: 0.6;
+}
+
+/* ===================================
+   STAT BOX (CHARACTER SHEET)
+   =================================== */
+.stat-box {
+    background: rgba(214, 172, 85, 0.05);
+    border: 1px solid var(--border-gold);
+    border-radius: 6px;
+    padding: 12px 16px;
+    text-align: center;
+}
+
+.stat-value {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===================================
+   BADGE
+   =================================== */
+.rpg-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.badge-gold {
+    background: rgba(214, 172, 85, 0.15);
+    color: var(--gold);
+    border: 1px solid rgba(214, 172, 85, 0.3);
+}
+
+.badge-cyan {
+    background: rgba(84, 213, 232, 0.15);
+    color: var(--cyan);
+    border: 1px solid rgba(84, 213, 232, 0.3);
+}
+
+.badge-green {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+/* ===================================
+   TIMELINE
+   =================================== */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, var(--gold), transparent);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -2.4rem;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--bg-primary);
+    box-shadow: 0 0 8px var(--gold);
+}
+
+/* ===================================
+   FORM INPUTS
+   =================================== */
+.rpg-input {
+    width: 100%;
+    background: rgba(16, 19, 29, 0.8);
+    border: 1px solid var(--border-gold);
+    border-radius: 6px;
+    color: var(--text-primary);
+    padding: 0.65rem 1rem;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.rpg-input:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 2px rgba(214, 172, 85, 0.2);
+}
+
+.rpg-input::placeholder {
+    color: rgba(184, 180, 172, 0.5);
+}
+
+.rpg-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.4rem;
+}
+
+.rpg-select {
+    width: 100%;
+    background: rgba(16, 19, 29, 0.8);
+    border: 1px solid var(--border-gold);
+    border-radius: 6px;
+    color: var(--text-primary);
+    padding: 0.65rem 1rem;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    cursor: pointer;
+    appearance: auto;
+}
+
+.rpg-select option {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.rpg-select:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 2px rgba(214, 172, 85, 0.2);
+}
+
+/* ===================================
+   TOAST NOTIFICATIONS
+   =================================== */
+.toast-container {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    pointer-events: none;
+}
+
+.toast {
+    pointer-events: auto;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 300px;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.3s ease;
+    border-left: 4px solid;
+    font-size: 0.9rem;
+}
+
+.toast-success {
+    background: rgba(27, 34, 51, 0.95);
+    border-left-color: var(--gold);
+    color: var(--text-primary);
+}
+
+.toast-error {
+    background: rgba(27, 34, 51, 0.95);
+    border-left-color: #ef4444;
+    color: var(--text-primary);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ===================================
+   LIGHTBOX
+   =================================== */
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.lightbox-overlay.active {
+    display: flex;
+}
+
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid var(--border-gold);
+}
+
+/* ===================================
+   ADMIN SIDEBAR
+   =================================== */
+.admin-sidebar {
+    width: 260px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0D1018 0%, var(--bg-secondary) 100%);
+    border-right: 1px solid var(--border-gold);
+    flex-shrink: 0;
+}
+
+.admin-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.admin-nav-link:hover {
+    color: var(--gold);
+    background: rgba(214, 172, 85, 0.05);
+    border-left-color: var(--gold);
+}
+
+.admin-nav-link.active {
+    color: var(--gold);
+    background: rgba(214, 172, 85, 0.08);
+    border-left-color: var(--gold);
+}
+
+.admin-nav-category {
+    padding: 10px 20px 4px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: rgba(184, 180, 172, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 8px;
+}
+
+/* ===================================
+   SCROLLBAR
+   =================================== */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-gold);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-dark);
+}
+
+/* ===================================
+   LOADING ANIMATION
+   =================================== */
+.rpg-loader {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    transition: opacity 0.5s ease;
+}
+
+.rpg-loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader-rune {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.3; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* ===================================
+   BACK TO TOP
+   =================================== */
+#back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    color: var(--bg-primary);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    text-decoration: none;
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
+    box-shadow: 0 4px 20px rgba(214, 172, 85, 0.5);
+    transform: translateY(-2px);
+}
+
+/* ===================================
+   NAV MENU (PUBLIC)
+   =================================== */
+.public-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(16, 19, 29, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-gold);
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.5rem;
+    transition: color 0.2s ease;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--gold);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gold);
+}
+
+/* ===================================
+   HERO
+   =================================== */
+.hero-bg {
+    background:
+        radial-gradient(ellipse at top, rgba(214, 172, 85, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at bottom, rgba(84, 213, 232, 0.05) 0%, transparent 60%),
+        var(--bg-primary);
+}
+
+/* ===================================
+   RESPONSIVE
+   =================================== */
+@media (max-width: 768px) {
+    .admin-sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .timeline {
+        padding-left: 1.5rem;
+    }
+}
+
+/* ===================================
+   UTILITY
+   =================================== */
+.text-gold { color: var(--gold); }
+.text-gold-light { color: var(--gold-light); }
+.text-cyan { color: var(--cyan); }
+.text-muted { color: var(--text-secondary); }
+.bg-panel { background: var(--bg-secondary); }
+.border-gold { border-color: var(--border-gold); }
+
+.glow-gold {
+    box-shadow: 0 0 15px rgba(214, 172, 85, 0.3);
+}
+
+.glow-cyan {
+    box-shadow: 0 0 15px rgba(84, 213, 232, 0.3);
+}
+
+/* ===================================
+   EMPTY STATE
+   =================================== */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    color: var(--text-secondary);
+}
+
+.empty-state-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.4;
+}
